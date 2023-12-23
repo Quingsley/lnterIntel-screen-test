@@ -26,7 +26,7 @@ class TileCard extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
         ),
         title: Text(
-          'Variants',
+          'Select Variants',
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         subtitle: const Text('Add variants to your product'),
