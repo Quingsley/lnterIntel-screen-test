@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:inter_intel_interview_test/providers/providers.dart';
-import 'package:inter_intel_interview_test/utils/constants.dart';
+import 'package:inter_intel_interview_test/constants/constants.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 class FormFields extends ConsumerWidget {
