@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:inter_intel_interview_test/providers/providers.dart';
 import 'package:inter_intel_interview_test/widgets/expansion_tile_card.dart';
 import 'package:inter_intel_interview_test/widgets/form_fields.dart';
 import 'package:inter_intel_interview_test/widgets/generated_variants.dart';
@@ -14,6 +15,7 @@ class AddProduct extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var isChecked = ref.watch(isCheckedState);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -28,8 +30,8 @@ class AddProduct extends ConsumerWidget {
           child: Column(
             children: [
               const ImageContainer(),
-              _gap,
-              const ProductInfo(),
+              if (!isChecked) _gap,
+              if (!isChecked) const ProductInfo(),
               _gap,
               const VariantCheckBoxText(),
               _gap,
