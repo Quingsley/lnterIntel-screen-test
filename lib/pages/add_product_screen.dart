@@ -7,6 +7,7 @@ import 'package:inter_intel_interview_test/widgets/generated_variants.dart';
 import 'package:inter_intel_interview_test/widgets/image_container.dart';
 import 'package:inter_intel_interview_test/widgets/options_cta.dart';
 import 'package:inter_intel_interview_test/widgets/product_info.dart';
+import 'package:inter_intel_interview_test/widgets/user_variant_card.dart';
 
 class AddProduct extends ConsumerWidget {
   const AddProduct({super.key, required this.title});
@@ -33,11 +34,13 @@ class AddProduct extends ConsumerWidget {
               if (!isChecked) _gap,
               if (!isChecked) const ProductInfo(),
               _gap,
+              const UserVariantsCard(),
+              _gap,
               const VariantCheckBoxText(),
               _gap,
-              const FormFields(),
-              _gap,
-              const TileCard(child: GeneratedVariants()),
+              if (isChecked) const FormFields(),
+              if (isChecked) _gap,
+              if (isChecked) const TileCard(child: GeneratedVariants()),
             ],
           ),
         ),
