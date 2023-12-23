@@ -12,28 +12,22 @@ class ProductInfo extends StatelessWidget {
         color: Theme.of(context).colorScheme.inversePrimary,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Chip(
-                    avatar: Icon(Icons.check_circle_outline),
-                    label: Text('Github T-Shirt')),
-              ),
-              SizedBox(
-                width: 4,
-              ),
-              Expanded(
-                  child: Chip(
-                      avatar: Icon(Icons.attach_money), label: Text('25.00'))),
-            ],
+          Expanded(
+            child: Chip(
+                avatar: Icon(Icons.check_circle_outline),
+                label: Text('T-Shirt')),
           ),
-          Chip(
-              avatar: Icon(Icons.description_outlined),
-              label: Text('Cool and awesome')),
+          Expanded(
+              child:
+                  Chip(avatar: Icon(Icons.attach_money), label: Text('25.00'))),
+          Expanded(
+            child: Chip(
+                avatar: Icon(Icons.description_outlined),
+                label: Text('Woolen')),
+          ),
         ],
       ),
     );
