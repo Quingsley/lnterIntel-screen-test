@@ -68,13 +68,11 @@ Here are some screenshots of the app:
     <td><img src="./screenshots/screenshot-2.jpg" alt="Screenshot 2" width="200"/></td>
     <td><img src="./screenshots/screenshot-4.jpg" alt="Screenshot 4" width="200"/></td>
     <td><img src="./screenshots/screenshot-7.jpg" alt="Screenshot 7" width="200"/></td>
+    <td><img src="./screenshots/screenshot-5.jpg" alt="Screenshot 5" width="200"/></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/screenshot-5.jpg" alt="Screenshot 5" width="200"/></td>
     <td><img src="./screenshots/screenshot-1.jpg" alt="Screenshot 1" width="200"/></td>
     <td><img src="./screenshots/screenshot-6.jpg" alt="Screenshot 6" width="200"/></td>
-  </tr>
-  <tr>
-    <td colspan="3"><img src="./screenshots/screenshot-3.jpg" alt="Screenshot 3" width="200"/></td>
+     <td><img src="./screenshots/screenshot-3.jpg" alt="Screenshot 3" width="200"/></td>
   </tr>
 </table>
