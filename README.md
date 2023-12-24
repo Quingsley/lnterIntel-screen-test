@@ -36,10 +36,11 @@ This is a Flutter project that generates product variant options and names.
 - Th combinations are managed using the `combinations` provider in the `providers/` directory.
 - The combinations are managed in `Combination` class that maintains its internal state and the method used to generate the combinations is `generateCombinations`.
 - Here's a step-by-step breakdown of what it does:
-- It takes two arguments: a list of colors and a list of sizes. These are presumably the options that a user has selected.
-- It uses the expand method on the list of colors. The expand method transforms each element in the list into zero or more elements by applying a function to it. In this case, the function is a map operation on the list of sizes.
-- The map operation takes each size and returns a string that represents a combination of a color and a size. The getSizeName and getColorName functions are used to get the names of the size and color respectively.
-- The result of the expand operation is a new list that contains all possible combinations of colors and sizes. This list is then assigned to the state.
+
+  - It takes two arguments: a list of colors and a list of sizes. These are presumably the options that a user has selected.
+  - It uses the expand method on the list of colors. The expand method transforms each element in the list into zero or more elements by applying a function to it. In this case, the function is a map operation on the list of sizes.
+  - The map operation takes each size and returns a string that represents a combination of a color and a size. The getSizeName and getColorName functions are used to get the names of the size and color respectively.
+  - The result of the expand operation is a new list that contains all possible combinations of colors and sizes. This list is then assigned to the state.
 
 - When a user selects or deselects an option, the `combinations` state is updated, which in turn updates the `GeneratedVariants` widget.
 -
@@ -62,10 +63,18 @@ find the apk in the root directory of the project. `app-release.apk`
 
 Here are some screenshots of the app:
 
-![Screenshot 2](./screenshots/screenshot-2.jpg)
-![Screenshot 4](./screenshots/screenshot-4.jpg)
-![Screenshot 7](./screenshots/screenshot-7.jpg)
-![Screenshot 5](./screenshots/screenshot-5.jpg)
-![Screenshot 1](./screenshots/screenshot-1.jpg)
-![Screenshot 6](./screenshots/screenshot-6.jpg)
-![Screenshot 3](./screenshots/screenshot-3.jpg)
+<table>
+  <tr>
+    <td><img src="./screenshots/screenshot-2.jpg" alt="Screenshot 2" width="200"/></td>
+    <td><img src="./screenshots/screenshot-4.jpg" alt="Screenshot 4" width="200"/></td>
+    <td><img src="./screenshots/screenshot-7.jpg" alt="Screenshot 7" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/screenshot-5.jpg" alt="Screenshot 5" width="200"/></td>
+    <td><img src="./screenshots/screenshot-1.jpg" alt="Screenshot 1" width="200"/></td>
+    <td><img src="./screenshots/screenshot-6.jpg" alt="Screenshot 6" width="200"/></td>
+  </tr>
+  <tr>
+    <td colspan="3"><img src="./screenshots/screenshot-3.jpg" alt="Screenshot 3" width="200"/></td>
+  </tr>
+</table>
