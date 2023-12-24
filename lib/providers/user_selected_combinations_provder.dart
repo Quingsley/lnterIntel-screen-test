@@ -1,9 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// This  class will maintain the state of the user selected combinations
 class UserSelectedCombinationsNotifier extends Notifier<List<String>> {
   @override
   List<String> build() {
-    return [];
+    return []; // initial state
   }
 
   void add(String combination) {
@@ -13,8 +14,4 @@ class UserSelectedCombinationsNotifier extends Notifier<List<String>> {
   void remove(String combination) {
     state = state.where((item) => item != combination).toList();
   }
-
-  // void clear() {
-  //   state = [];
-  // }
 }

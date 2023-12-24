@@ -5,6 +5,7 @@ final List<String> _images = [
   'assets/images/t-shirt-2.webp'
 ];
 
+// simple widget to display the images of an already added product
 class ImageContainer extends StatelessWidget {
   const ImageContainer({super.key});
   final double _height = 150;
