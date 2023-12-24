@@ -4,13 +4,14 @@ import 'package:inter_intel_interview_test/providers/providers.dart';
 import 'package:inter_intel_interview_test/constants/constants.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
+// provides the two multi-select chip fields
 class FormFields extends ConsumerWidget {
   const FormFields({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var colorStateProvider = ref.watch(selectedColors);
-    var sizeStateProvider = ref.watch(selectedSizes);
+    var colorStateProvider = ref.watch(selectedColorsProvider);
+    var sizeStateProvider = ref.watch(selectedSizesProvider);
     return Column(
       children: [
         MultiSelectChipField<Color?>(
@@ -23,12 +24,19 @@ class FormFields extends ConsumerWidget {
                   ))
               .toList(),
           onTap: (values) {
-            ref.read(selectedColors.notifier).state.clear();
-            ref.read(selectedColors.notifier).state.addAll(values);
+            ref
+                .read(selectedColorsProvider.notifier)
+                .state
+                .clear(); // clear the state
+            ref
+                .read(selectedColorsProvider.notifier)
+                .state
+                .addAll(values); // add all selected colors
             if (sizeStateProvider.isNotEmpty) {
-              ref
-                  .read(combinations.notifier)
-                  .combinations(colorStateProvider, sizeStateProvider);
+              // check if the size state is not empty
+              ref.read(combinationsProvider.notifier).generateCombinations(
+                  colorStateProvider,
+                  sizeStateProvider); // generate the combinations
             }
           },
         ),
@@ -42,12 +50,13 @@ class FormFields extends ConsumerWidget {
               .map((s) => MultiSelectItem<ShirtSize?>(s, s.name))
               .toList(),
           onTap: (values) {
-            ref.read(selectedSizes.notifier).state.clear();
-            ref.read(selectedSizes.notifier).state.addAll(values);
+            // similar to what I did with the color options
+            ref.read(selectedSizesProvider.notifier).state.clear();
+            ref.read(selectedSizesProvider.notifier).state.addAll(values);
             if (colorStateProvider.isNotEmpty) {
               ref
-                  .read(combinations.notifier)
-                  .combinations(colorStateProvider, sizeStateProvider);
+                  .read(combinationsProvider.notifier)
+                  .generateCombinations(colorStateProvider, sizeStateProvider);
             }
           },
         )

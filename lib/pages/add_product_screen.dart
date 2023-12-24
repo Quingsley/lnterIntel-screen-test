@@ -16,7 +16,7 @@ class AddProduct extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var isChecked = ref.watch(isCheckedState);
+    var isChecked = ref.watch(isCheckedStateProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,

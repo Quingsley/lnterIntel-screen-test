@@ -4,13 +4,14 @@ import 'package:inter_intel_interview_test/constants/constants.dart';
 import 'package:inter_intel_interview_test/providers/generated_combinations_provider.dart';
 import 'package:inter_intel_interview_test/providers/user_selected_combinations_provder.dart';
 
-// using state provider to keep things simple
-final selectedColors = StateProvider<List<Color?>>((ref) => []);
-final selectedSizes = StateProvider<List<ShirtSize?>>((ref) => []);
-final isCheckedState = StateProvider<bool>((ref) => false);
-final combinations =
+// using state providers to keep things simple
+final selectedColorsProvider = StateProvider<List<Color?>>((ref) => []);
+final selectedSizesProvider = StateProvider<List<ShirtSize?>>((ref) => []);
+final isCheckedStateProvider = StateProvider<bool>((ref) => false);
+
+final combinationsProvider =
     NotifierProvider<Combinations, List<String>>(() => Combinations());
 
-final userSelectedCombinations =
+final userSelectedCombinationsProvider =
     NotifierProvider<UserSelectedCombinationsNotifier, List<String>>(
         () => UserSelectedCombinationsNotifier());

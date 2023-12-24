@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:inter_intel_interview_test/providers/providers.dart';
 
+// This widget will display the generated variants and will allow users to select the variants they want to save or
+// delete the variants they don't want to save
 class GeneratedVariants extends ConsumerWidget {
   const GeneratedVariants({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var selectedCombinations =
-        ref.watch(userSelectedCombinations); // will store what the user selects
+    var selectedCombinations = ref.watch(
+        userSelectedCombinationsProvider); // will store combinations that the user selects
     var generatedCombinations =
-        ref.watch(combinations); // generated combinations
+        ref.watch(combinationsProvider); // generated combinations
 
     return generatedCombinations.isEmpty
         ? Text(
@@ -32,22 +34,29 @@ class GeneratedVariants extends ConsumerWidget {
                         .contains(generatedCombinations[index]),
                     subtitle: const Text('Price: \$${25.00}'),
                     secondary: IconButton(
-                        onPressed: () =>
-                            ref.read(combinations.notifier).removeCombination(
-                                  generatedCombinations[index],
-                                ),
+                        onPressed: () {
+                          ref
+                              .read(combinationsProvider.notifier)
+                              .removeCombination(
+                                generatedCombinations[index],
+                              );
+                          ref
+                              .read(userSelectedCombinationsProvider.notifier)
+                              .remove(generatedCombinations[index]);
+                        },
                         icon: Icon(
                           Icons.delete,
                           color: Theme.of(context).colorScheme.error,
                         )),
                     onChanged: (bool? value) {
                       if (value == true) {
+                        // add the selected combination to the userSelectedCombinations state otherwise remove it
                         ref
-                            .read(userSelectedCombinations.notifier)
+                            .read(userSelectedCombinationsProvider.notifier)
                             .add(generatedCombinations[index]);
                       } else {
                         ref
-                            .read(userSelectedCombinations.notifier)
+                            .read(userSelectedCombinationsProvider.notifier)
                             .remove(generatedCombinations[index]);
                       }
                     },
@@ -57,10 +66,10 @@ class GeneratedVariants extends ConsumerWidget {
               ),
               OutlinedButton.icon(
                   onPressed: () {
-                    ref.read(isCheckedState.notifier).state = false;
-                    ref.read(selectedColors.notifier).state = [];
-                    ref.read(selectedSizes.notifier).state = [];
-                    ref.read(combinations.notifier).clear();
+                    // clearing all the states
+                    ref.read(isCheckedStateProvider.notifier).state = false;
+                    ref.read(selectedColorsProvider.notifier).state = [];
+                    ref.read(selectedSizesProvider.notifier).state = [];
                   },
                   label: Text(
                     'Save',

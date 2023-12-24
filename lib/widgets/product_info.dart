@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// A widget that displays the product information (name, description, price)
 class ProductInfo extends StatelessWidget {
   const ProductInfo({super.key});
 

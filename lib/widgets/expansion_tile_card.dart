@@ -1,7 +1,10 @@
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:inter_intel_interview_test/providers/providers.dart';
 
-class TileCard extends StatelessWidget {
+// provides an expansion tile card widget
+class TileCard extends ConsumerWidget {
   final Widget child;
   const TileCard({
     super.key,
@@ -9,10 +12,10 @@ class TileCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var combinations = ref.watch(combinationsProvider);
     return Container(
       decoration: BoxDecoration(
-        // color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(8.0),
       ),
       margin: const EdgeInsets.only(top: 4.0),
@@ -22,7 +25,7 @@ class TileCard extends StatelessWidget {
         expandedColor: Theme.of(context).colorScheme.inversePrimary,
         baseColor: Theme.of(context).colorScheme.inversePrimary,
         leading: Icon(
-          Icons.settings,
+          Icons.edit,
           color: Theme.of(context).colorScheme.primary,
         ),
         title: Text(
@@ -38,7 +41,7 @@ class TileCard extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            height: 250.0,
+            height: combinations.isEmpty ? 20 : 250.0,
             child: child,
           ),
         ],
